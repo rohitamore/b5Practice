@@ -3,14 +3,48 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserComponent } from './components/user/user.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { ProductComponent } from './components/product/product.component';
+import { VariablesComponent } from './components/variables/variables.component';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
 
+import { FormsModule } from '@angular/forms';
+import { NgmodelComponent } from './components/ngmodel/ngmodel.component';
+import { NgIfComponent } from './components/ng-if/ng-if.component';
+import { NgifPracticeComponent } from './components/ngif-practice/ngif-practice.component';
+import { NgForComponent } from './components/ng-for/ng-for.component';
+import { NgForPraticeComponent } from './components/ng-for-pratice/ng-for-pratice.component';
+import { NgClassComponent } from './components/ng-class/ng-class.component';
+import { NgstyleComponent } from './components/ngstyle/ngstyle.component';
+import { UsersComponent } from './components/users/users.component';
+import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CandidatesComponent } from './components/apiCalls/candidates/candidates.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent,
+    EmployeeComponent,
+    ProductComponent,
+    VariablesComponent,
+    DataBindingComponent,
+    NgmodelComponent,
+    NgIfComponent,
+    NgifPracticeComponent,
+    NgForComponent,
+    NgForPraticeComponent,
+    NgClassComponent,
+    NgstyleComponent,
+    UsersComponent,
+    ProductsComponent,
+    CandidatesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

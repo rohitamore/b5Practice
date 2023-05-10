@@ -1,0 +1,107 @@
+<div class="container" >
+
+    <div class="row">
+        <div class="col-6 bg-success p-4">
+            <h3>One Way Data Binding</h3>
+            <div class="row">
+                <div class="col-4">
+                    <h2>From .ts To .html</h2>
+                    <ul>
+                        <li>Interpolation  <span>{{</span>  <span> }}</span></li>
+                        <li>Property Binding  </li> 
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <h2>From .html  To .ts</h2>
+                    <ul>
+                        <li>Event Binding</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 bg-success p-4">
+            <h3>Two Way Data Binding</h3>
+            <ul>
+                <li>Using ngModel</li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-3">
+            {{fName}} <br>
+            {{myRollNo}} <br>
+            {{currentDate}}<br>
+            {{isIndian}} <br>
+            {{result}}
+        </div>
+        <div class="col-3">
+            <input type="text"  [value]="fName"
+             [placeholder]="myPlcaehondertext"
+              [maxLength]="maxInputLength">
+        </div>
+        <div class="col-3">
+            <input [type]="inputType">
+        </div>
+        <div class="col-3">
+            <label [class]="myClassName">
+                This is Texct</label>
+        </div>
+        <div class="col-3" [innerHTML]="myHtml">
+             
+        </div>
+        <div class="col-3">
+            <input type="text" 
+            [value]="studentObject.city">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-primary"
+             (click)="showAlert()"> Click Me</button>
+        </div>
+        <div class="col-3">
+            <select (change)="onCityChange()">
+                <option value="">Select City</option>
+                <option value="Ngp">Nagpur</option>
+                <option value="Mumbai">Mumbai</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <h1 (mouseover)="onMouseOverMe()"  
+             (mouseleave)="onMouseLeave()">Hover Me</h1>
+        </div>
+        <div class="col-3">
+            <input type="text" (focus)="ontextFoxus()" 
+             (blur)="onTextFocusOut()" id="">
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-3">
+            <input type="text"  [(ngModel)]="firstName"  > <br>
+            {{firstName}}
+        </div>
+        <div class="col-3">
+            <input type="text" [value]="lastName" ><br>
+            {{lastName}}
+        </div>
+        <div class="col-3">
+             <button class="btn btn-primary" (click)="createFullName()">Create Full Name</button>
+        </div>
+        <div class="col-3">
+            <input type="text" [value]="fullName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <select (change)="onCityChange()" [(ngModel)]="city">
+                <option value="">Select City</option>
+                <option value="Ngp">Nagpur</option>
+                <option value="Mum">Mumbai</option>
+            </select>
+        </div>
+        <div class="col-3"> 
+            {{city}}
+        </div>
+         
+    </div>
+</div>

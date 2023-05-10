@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>  Product id</th>
+                    <th>  Sku</th>
+                    <th>Category</th>
+                    <th>  Name</th>
+                    <th>  Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productsArray;let sr= index">
+                    <td>{{sr+1}}</td>
+                    <td>{{product.productId}}</td> 
+                    <td>{{product.productSku}}</td>
+                    <td>{{product.categoryName}}</td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.productPrice}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header bg-success">
+                create Product
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="">SKU</label>
+                        <input type="text" [(ngModel)]="productObj.ProductSku" class="form-control" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <label for="">Product name</label>
+                        <input type="text" [(ngModel)]="productObj.ProductName" class="form-control" >
+                    </div>
+                    <div class="col-5">
+                        <label for="">Short name</label>
+                        <input type="text" [(ngModel)]="productObj.ProductShortName" class="form-control" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">Product Price</label>
+                        <input type="text" [(ngModel)]="productObj.ProductPrice" class="form-control" >
+                    </div>
+                    <div class="col-4">
+                        <label for="">Delivery Time Span</label>
+                        <input type="text" [(ngModel)]="productObj.DeliveryTimeSpan" class="form-control" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="">Product Price</label>
+                       <select class="form-control" [(ngModel)]="productObj.CategoryId">
+                        <option *ngFor="let item of categoryArray" [value]="item.categoryId">{{item.categoryName}}</option>
+                       </select>
+                    </div>
+                    <div class="col-4">
+                        <label for="">Image Url</label>
+                        <input type="text" [(ngModel)]="productObj.ProductImageUrl" class="form-control" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="">Description  </label>
+                        <textarea rows="3" [(ngModel)]="productObj.ProductDescription"  class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-sm btn-primary" (click)="createProduct()">Save Product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

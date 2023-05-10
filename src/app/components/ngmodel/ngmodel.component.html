@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-3">
+                <input type="text" [(ngModel)]="num1"
+                 (change)="multiply()" class="form-control" 
+                  placeholder="num 1">
+            </div>
+            <div class="col-3">
+                <input type="text" [(ngModel)]="num2"
+                 (change)="multiply()" class="form-control"
+                  placeholder="num 2">
+            </div>
+            <div class="col-3">
+                <input type="text" [(ngModel)]="result"
+                 class="form-control" placeholder="Result">
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="col-3 ">
+                <input type="text" [(ngModel)]="fName"  class="form-control"  placeholder="F NAme">
+            </div>
+            <div class="col-3 ">
+                <input type="text" [(ngModel)]="mName"  class="form-control" placeholder="m Name">
+            </div>
+            <div class="col-3 ">
+                <input type="text" [(ngModel)]="lName"  class="form-control" placeholder="L name">
+            </div>
+            <div class="col-2 ">
+                <input type="button" value="Create" (click)="createFullName()" class="btn btn-sm btn-primary">
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-6">
+                <input type="text" [(ngModel)]="fullName"   class="form-control"  placeholder="F NAme">
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="col-3">
+                <input type="text" [(ngModel)]="number1"  class="form-control"  placeholder="num 1">
+            </div>
+            <div class="col-3">
+                <input type="text" [(ngModel)]="number2"  class="form-control" placeholder="num 2">
+            </div> 
+            <div class="col-3">
+                <input type="text" [(ngModel)]="calResult"  class="form-control" placeholder="num 2">
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <button class="btn btn-sm btn-secondary" (click)="onAdd()"> +</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-sm btn-secondary" > -</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-sm btn-secondary"> *</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-sm btn-secondary"> /</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <select  class="form-control" [(ngModel)]="selectedCity">
+            <option value="">Select City</option>
+            <option value="ngp">Nagpur</option>
+            <option value="mum">Mumbai</option>
+            <option value="jal">Jalgao</option>
+            <option value="sol">Solpur</option>
+        </select>
+        <br>
+        selectedCity - {{selectedCity}}
+    </div>
+    <div class="col-3">
+        <input type="radio" name="gender" [(ngModel)]="gender" 
+        value="male" /> Male
+        <input type="radio" name="gender" [(ngModel)]="gender" 
+         value="female" /> Fe-Male
+        <br>
+        gender - {{gender}}
+    </div>
+</div>
+

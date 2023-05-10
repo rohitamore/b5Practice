@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-3">
+        <div class="p-3" [ngClass]="classNameDiv1">
+            Div 1
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3" [ngClass]="classNameDiv2">
+            Div 2
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-3" [ngClass]="mydiv3ClassName">
+            Div 3
+        </div>
+    </div>
+</div>
+<div class="row pt-2">
+    <div class="col-3">
+         <button class="btn btn-success" (click)="addSucces()">Add Success</button>
+         <button class="btn btn-secondary" (click)="removeSucces()">Remove Success</button>
+    </div>
+    <div class="col-3">
+        {{classNameDiv2}}
+         <input type="text" [(ngModel)]="classNameDiv2" placeholder="Enter Class Name">
+   </div>
+   <div class="col-3">
+    <button class="btn btn-success" (click)="success()"> add</button>
+    <button class="btn btn-danger"    (click)="danger()"> add</button>
+    <button class="btn btn-secondary" (click)="secondary()"> add</button>
+    <button class="btn btn-info" > add</button>
+    <button class="btn btn-warning" > add</button>
+</div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        <div class="p-3"  [ngClass]="isActive == true ? 'bg-success' : 'bg-danger' " >
+            Div 4 - {{isActive}}
+        </div>
+    </div>
+    <div class="col-3">
+        <div [ngClass]="isCircle ? 'circle' : 'square' "> 
+            div 2
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <div class="p-3"  >
+           <input type="checkbox" [(ngModel)]="isActive">
+        </div>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="makeCircle()">Circle</button>
+        <button class="btn btn-success" (click)="makeSquare()">Square</button> 
+    </div>
+</div>

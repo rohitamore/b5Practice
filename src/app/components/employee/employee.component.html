@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-7">
+        <div class="card">
+            <div class="card-header bg-success">
+                List
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let candidate of candidateArray;let sr=index">
+                            <td>{{sr+1}}</td>
+                            <td>{{candidate.name}}</td>
+                            <td>{{candidate.contactNo}}</td>
+                            <td>{{candidate.email}}</td>
+                            <td>{{candidate.city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header bg-primary">
+               New Candidate
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6"><label for="">Name</label>
+                                <input type="text" name="name" [(ngModel)]="candidateObj.Name"
+                                    class="form-control ">
+                                <div class="text-danger"><span>required</span></div><label
+                                    for="">Email</label>
+                                    <input type="text" name="email" 
+                                    class="form-control "  [(ngModel)]="candidateObj.Email">
+                                     <label for="">College Name</label>
+                                    <input type="text" name="collegeName"
+                                     class="form-control " [(ngModel)]="candidateObj.CollegeName">
+                            </div>
+                            <div class="col-md-6"><label for="">Contact
+                                    No</label>
+                                    <input type="text" name="contactNo"  [(ngModel)]="candidateObj.ContactNo"
+                                    class="form-control ">
+                                    <label
+                                    for="">Password</label>
+                                    <input type="password" name="password" [(ngModel)]="candidateObj.Password" 
+                                    class="form-control "><label
+                                    for="">Education</label>
+                                    <input type="text" name="education"  [(ngModel)]="candidateObj.Education"
+                                    class="form-control "><label
+                                    for="">City</label>
+                                    <input type="text" name="city"  [(ngModel)]="candidateObj.City"
+                                    class="form-control "></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-primary" (click)="saveCandidate()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-3">
+        <select class="form-control">
+            <option [value]="candidate.candidateId" *ngFor="let candidate of candidateArray">{{candidate.name}}</option>
+        </select>
+    </div>
+</div> -->

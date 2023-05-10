@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-3">
+        <label class="px-2" *ngFor="let state of stateArray"> 
+            {{state}}</label>
+    </div>
+    <div class="col-3">
+        <select name="" id="">
+            <option *ngFor="let stateName of stateArray" 
+            [value]="stateName"> {{stateName}}</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <span *ngFor="let state of stateArray">
+            <input type="radio" name="stateName"  
+            [value]="state">  {{state}}
+        </span>
+    </div>
+    <div class="col-3">
+        <ul >
+            <li *ngFor="let num of numbers">{{num}} * 2 = {{num*2}}</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of employeeList;let sr= index;let f= first; let l = last">
+                    <td>{{sr+1}} = {{f}} --{{l}}</td>
+                    <td>{{emp.empId}}</td>
+                    <td>{{emp.empName}}</td>
+                    <td>{{emp.empCity}}</td>
+                    <td>
+                        <span *ngIf="emp.empGender  == 'M'">Male</span>
+                        <span *ngIf="emp.empGender == 'F'">Fe-Male</span>
+                    </td>
+                    <td>
+                        <span *ngIf="emp.isActive == true"> Active</span>
+                        <span *ngIf="emp.isActive == false">De-Active</span>
+                    </td>
+                </tr>
+            </tbody>
+           
+        </table>
+    </div>
+</div>

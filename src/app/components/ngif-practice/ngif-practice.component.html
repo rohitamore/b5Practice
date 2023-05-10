@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-3">
+                <input type="text" [(ngModel)]="inputNum" class="form-control" placeholder="Enter Num">
+            </div>
+            <div class="col-3">
+              <button class="btn btn-success" (click)="checkNo()">Check No</button>
+            </div>
+            <div class="col-3">
+                {{isEven}}
+                <span *ngIf="isEven == 'Yes'" class="text-primary"> No Is Even</span>
+                <span *ngIf="isEven == 'No'" class="text-danger"> No Is Odd</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="col-7">
+                <input type="radio" [(ngModel)]="gender" name="gender" value="Male"> Male
+                <input type="radio" [(ngModel)]="gender" name="gender" value="Female"> Female
+            </div>
+            <div class="col-5">
+                gender=> {{gender}}
+                <br>
+                <strong *ngIf="gender == 'Male'">User Selected Male</strong>
+                <strong *ngIf="gender == 'Female'">User Selected Fe-Male</strong>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="col-4">
+                <div class="bg-success p-2 catagory" (click)="setMobile()">
+                    Mobile
+                </div> 
+            </div>
+            <div class="col-4 ">
+                <div class="bg-danger p-2 catagory"  (click)="setLaptop()">
+                    Laptop
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="bg-secondary p-2 catagory" (click)="setCamera()">
+                    Camera
+                </div>
+            </div>
+        </div>
+        <hr>
+        {{selectedCategory}}
+        <div class="row">
+            <div *ngIf="selectedCategory == 'Mobile'" class="col-12 text-center p-2" id="mobDiv" >
+                Samsumg, Sony, Motorola, Micromax
+            </div>
+            <div *ngIf="selectedCategory == 'Laptop'" class="col-12 text-center p-2" id="laptopDiv"  >
+                Sony, Lenovo, Hp, Acer
+            </div>
+            <div *ngIf="selectedCategory == 'Camera'" class="col-12 text-center p-2" id="cameraDiv" >
+                Sony, Philips
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <input type="checkbox"  [(ngModel)]="isTeacher" (change)="onTeacherChange()"> Teacher - {{isTeacher}}
+    </div>
+    <div class="col-4">
+        <input type="checkbox" [(ngModel)]="isSpoart" (change)="onSpoartChange()"> Sport Person - {{isSpoart}}
+    </div>
+    <div class="col-4">
+        <input type="checkbox" [(ngModel)]="isMusician" (change)="onMusicianChnage()"> Musician - {{isMusician}}
+    </div>
+</div>
+

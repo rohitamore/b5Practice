@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-4">
+        isDiv1Visible-  {{isDiv1Visible}}
+    </div>
+    <div class="col-4">
+        compare - {{student1Name == student2Name}}
+    </div>
+    <div class="col-4">
+         
+    </div>
+</div>
+<div class="row" *ngIf="isHideAll">
+    <div class="col-4">
+        <div class="bg-primary p-3" *ngIf="isDiv1Visible">
+            Div 1
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="bg-success p-3" *ngIf="student1Name == student2Name">
+            Div 2
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="bg-danger p-3" *ngIf="isDiv3Visible">
+          <div class="row">
+            <div class="col-6">
+                <select class="form-control" [(ngModel)]="selectedCast">
+                    <option value="">Select Cast</option>
+                    <option value="Obc">OBC</option>
+                    <option value="Open">Open</option>
+                    <option value="SC-NT">SC-NT</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-6">
+                {{selectedCast}}
+                <input type="text" *ngIf="selectedCast == 'Other'" class="form-control" placeholder="Other Cast">
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-4 text-center">
+        <button class="btn btn-secondary" (click)="onHideDiv1()">Hide</button>
+         <button class="btn btn-primary px-2" (click)="onShowDiv1()">show</button>
+    </div>
+    <div class="col-4">
+         <input type="text" [(ngModel)]="student1Name">
+         <input type="text" [(ngModel)]="student2Name">
+    </div>
+    <div class="col-4">
+         <button class="btn btn-secondary" (click)="toggleDiv3()">Toggle</button>
+    </div>
+</div>
+
+ 

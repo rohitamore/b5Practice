@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-6 pt-2">
+        <input type="text" [(ngModel)]="emploeyeObj.name" class="form-control" placeholder="Name">
+    </div>
+    <div class="col-6 pt-2">
+        <input type="text" [(ngModel)]="emploeyeObj.contact" class="form-control" placeholder="Contact No">
+    </div>
+    <div class="col-6 pt-2">
+        <select class="form-control" [(ngModel)]="emploeyeObj.department">
+            <option value="">Select Department</option>
+            <option value="Sales">Sales</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Development">Development</option>
+            <option value="Testing">Testing</option>
+        </select>
+    </div>
+    <div class="col-6 pt-2">
+        <input type="text" [(ngModel)]="emploeyeObj.leadName" class="form-control" placeholder="Team Lead Name">
+    </div>
+    <div class="col-6 pt-2">
+        <select class="form-control" [(ngModel)]="emploeyeObj.technology">
+            <option value="">Select Technology</option>
+            <option value="Dot Net">Dot Net</option>
+            <option value="UI Designing">UI Designing</option>
+            <option value="Java">DeveloJavapment</option>
+            <option value="Angular">Angular</option>
+            <option value="React">React</option>
+        </select>
+    </div>
+
+</div>
+<div class="row pt-4 text-center">
+    <div class="col-4">
+        <button class="btn btn-danger btn-sm" id="btnClear">Clear Object </button>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-primary btn-sm" (click)="onSaveEmp()">Save Object </button>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-success btn-sm" (click)="readDataFromLocal()">Print Object </button>
+    </div>
+</div>
+<div class="row pt-4 text-center">
+    <div class="col-12">
+        <span>Name Is: <strong id="strName" class="text-danger"> </strong>{{localDataObj?.name}},</span>
+        <span>Contact Is:<strong id="strContact" class="text-danger"> </strong>{{localDataObj?.contact}},</span>
+        <span>Dept Is:<strong id="strDept" class="text-danger"> </strong>{{localDataObj?.department}},</span>
+        <span>LeadName Is:<strong id="strLeadName" class="text-danger"> </strong>{{localDataObj?.leadName}},</span>
+        <span>Technology Is:<strong id="strTechnology" class="text-danger"> </strong>{{localDataObj?.technology}}</span>
+    </div>
+</div>
+<input type="text" [(ngModel)]="inputNo"> <button (click)="checkEvenOdd()">Check No</button><br>
+{{mesage}}

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-3">
+        <div class="p2 bg-success" [style.width.%]="divWidth" [style.color]="myColor">
+            div 1
+        </div>
+        <br>
+        <input type="color" class="" [(ngModel)]="myColor">
+    </div>
+    <div class="col-3">
+        <div class="p2" [ngStyle]="{'color':myColor,'width':div2Width,
+         'background-color':backgroundColor}">
+            div 2
+        </div>
+        <div class="p3" [ngStyle]="myCss">
+
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="progress">
+            <div class="progress-bar" [style.width.%]="myProgress"></div>
+        </div>
+        <br>
+        <input type="text" class="" [(ngModel)]="myProgress">
+        <br>
+        <div class="progress">
+            <div class="progress-bar" [ngStyle]="{'width':myProgress + '%'}"></div>
+        </div>
+    </div>
+</div>
