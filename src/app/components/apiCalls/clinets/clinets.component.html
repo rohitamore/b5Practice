@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                Packages List
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Package Name</th>
+                            <th>Cost</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of packages;let sr= index">
+                            <td>{{sr+1}}</td>
+                            <td>{{item.packageName}}</td>
+                            <td>{{item.packageCost}}</td>
+                            <td>{{item.packageDescription}}</td>
+                            <td>
+                                <span class="text-success" *ngIf="item.isPackageActive">Active</span>
+                                <span class="text-danger" *ngIf="!item.isPackageActive">De-Active</span>
+                               </td>
+                            <td>
+                                <button class="btn btn-sm btn-primary" (click)="onEdit(item.packageId)">Edit</button>
+                                <button class="btn btn-sm btn-primary" (click)="onDelete(item.packageId)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Enter Package Details</h6>
+                    </div>
+                    <div class="col-md-6 text-end"><button class="btn btn-sm btn-warning btnClose">Close</button></div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row mt-2">
+                    <div class="col-md-12 mt-2"><label for="">package Name</label>
+                        <input type="text" name="packageName" [(ngModel)]="packageObj.packageName"
+                            class="form-control ">
+
+                    </div>
+                    <div class="col-md-12"><label for=""> Cost</label>
+                        <input type="email" [(ngModel)]="packageObj.packageCost" name="packageCost"
+                            class="form-control ">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6 mt-2"><label for="">  Package Active</label>
+                        <input type="checkbox" [(ngModel)]="packageObj.isPackageActive" name="isPackageActive"
+                            >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><label for="">City</label>
+                        <textarea name="packageDescription" class="form-control" rows="3"
+                            [(ngModel)]="packageObj.packageDescription"></textarea>
+                    </div> 
+                </div> 
+            </div>
+            <div class="card-footer text-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="saveform ">
+                            <button class="btn btn-sm btn-danger" *ngIf="packageObj.packageId == 0">Save </button>
+                            <button class="btn btn-sm btn-success" (click)="onUpdate()"
+                                *ngIf="packageObj.packageId !== 0">update </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6"><button class="btn btn-sm btn-danger mx-2">Close</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

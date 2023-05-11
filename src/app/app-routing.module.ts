@@ -15,6 +15,7 @@ import { NgClassComponent } from './components/ng-class/ng-class.component';
 import { NgstyleComponent } from './components/ngstyle/ngstyle.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CandidatesComponent } from './components/apiCalls/candidates/candidates.component';
+import { ClinetsComponent } from './components/apiCalls/clinets/clinets.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path:'candidates',
     component:CandidatesComponent
+  }, 
+  {
+    path:'Clients',
+    component:ClinetsComponent
   }, 
   {
     path:'ng-if-2',

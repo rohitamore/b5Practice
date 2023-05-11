@@ -21,6 +21,7 @@ import { UsersComponent } from './components/users/users.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CandidatesComponent } from './components/apiCalls/candidates/candidates.component';
+import { ClinetsComponent } from './components/apiCalls/clinets/clinets.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { CandidatesComponent } from './components/apiCalls/candidates/candidates
     NgstyleComponent,
     UsersComponent,
     ProductsComponent,
-    CandidatesComponent
+    CandidatesComponent,
+    ClinetsComponent
   ],
   imports: [
     BrowserModule,
