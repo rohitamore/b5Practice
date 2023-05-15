@@ -22,6 +22,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CandidatesComponent } from './components/apiCalls/candidates/candidates.component';
 import { ClinetsComponent } from './components/apiCalls/clinets/clinets.component';
+import { CourseComponent } from './components/apiCalls/course/course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { ClinetsComponent } from './components/apiCalls/clinets/clinets.componen
     UsersComponent,
     ProductsComponent,
     CandidatesComponent,
-    ClinetsComponent
+    ClinetsComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,

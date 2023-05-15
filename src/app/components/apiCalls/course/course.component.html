@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-8">
+        <div class="row">
+            <div class="col-3 pt-1" *ngFor="let course of courseList">
+                <div class="card">
+                    <div class="card-header">{{course.courseName}}</div>
+                    <div class="card-body">
+                        {{course.courseDuration}} - {{course.courseBasicFees}}
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-danger btn-sm" (click)="onDelete(course)">Delete</button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <button class="btn btn-success btn-sm" (click)="onEdit(course)">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div> 
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Enter Package Details</h6>
+                    </div>
+                    <div class="col-md-6 text-end"><button class="btn btn-sm btn-warning btnClose">Close</button></div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row mt-2">
+                    <div class="col-md-12 mt-2"><label for="">Course Name  </label>
+                        <input type="text" name="courseName" [(ngModel)]="courseObj.courseName"
+                            class="form-control ">
+
+                    </div>
+                    <div class="col-md-12"><label for="">   Duration</label>
+                        <input type="email" [(ngModel)]="courseObj.courseDuration" name="courseDuration"
+                            class="form-control ">
+                    </div>
+                    <div class="col-md-12"><label for="">   Basic Fees</label>
+                        <input type="email" [(ngModel)]="courseObj.courseBasicFees" name="courseBasicFees"
+                            class="form-control ">
+                    </div>
+                </div>
+                 
+            </div>
+            <div class="card-footer text-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="saveform ">
+                            <button class="btn btn-sm btn-danger" *ngIf="courseObj.courseId == 0">Save </button>
+                            <button (click)="onUpdate()" class="btn btn-sm btn-success" *ngIf="courseObj.courseId !== 0">update </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6"><button class="btn btn-sm btn-danger mx-2">Close</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
