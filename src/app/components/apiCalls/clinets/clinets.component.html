@@ -25,10 +25,11 @@
                             <td>
                                 <span class="text-success" *ngIf="item.isPackageActive">Active</span>
                                 <span class="text-danger" *ngIf="!item.isPackageActive">De-Active</span>
-                               </td>
+                            </td>
                             <td>
                                 <button class="btn btn-sm btn-primary" (click)="onEdit(item.packageId)">Edit</button>
-                                <button class="btn btn-sm btn-primary" (click)="onDelete(item.packageId)">Delete</button>
+                                <button class="btn btn-sm btn-primary"
+                                    (click)="onDelete(item.packageId)">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -46,45 +47,56 @@
                     <div class="col-md-6 text-end"><button class="btn btn-sm btn-warning btnClose">Close</button></div>
                 </div>
             </div>
-            <div class="card-body">
-
-                <div class="row mt-2">
-                    <div class="col-md-12 mt-2"><label for="">package Name</label>
-                        <input type="text" name="packageName" [(ngModel)]="packageObj.packageName"
-                            class="form-control ">
-
-                    </div>
-                    <div class="col-md-12"><label for=""> Cost</label>
-                        <input type="email" [(ngModel)]="packageObj.packageCost" name="packageCost"
-                            class="form-control ">
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-6 mt-2"><label for="">  Package Active</label>
-                        <input type="checkbox" [(ngModel)]="packageObj.isPackageActive" name="isPackageActive"
-                            >
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6"><label for="">City</label>
-                        <textarea name="packageDescription" class="form-control" rows="3"
-                            [(ngModel)]="packageObj.packageDescription"></textarea>
-                    </div> 
-                </div> 
-            </div>
-            <div class="card-footer text-center">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="saveform ">
-                            <button class="btn btn-sm btn-danger" *ngIf="packageObj.packageId == 0">Save </button>
-                            <button class="btn btn-sm btn-success" (click)="onUpdate()"
-                                *ngIf="packageObj.packageId !== 0">update </button>
+            <form #packageForm="ngForm">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-md-12 mt-2"><label for="">package Name</label>
+                            <input type="text" #packageName="ngModel" 
+                            name="packageName" required minlength="4" 
+                            [(ngModel)]="packageObj.packageName"
+                                class="form-control "> 
+                                <div class="text-danger" *ngIf="packageName.touched || packageName.dirty">
+                                    <span *ngIf="packageName.errors?.['required']"> This Is Required</span>
+                                    <span *ngIf="packageName.errors?.['minlength']"> Min 4 chars Required</span>
+                                </div>
+                        </div>
+                        <div class="col-md-12"><label for=""> Cost</label>
+                            <input type="text" #cost="ngModel"  required [(ngModel)]="packageObj.packageCost" name="packageCost"
+                                class="form-control ">
+                                <div class="text-danger" *ngIf="cost.touched || cost.dirty">
+                                    <span *ngIf="cost.errors?.['required']">Cost Is Required</span>
+                                </div>
                         </div>
                     </div>
-                    <div class="col-md-6"><button class="btn btn-sm btn-danger mx-2">Close</button></div>
+                    <div class="row">
+                        <div class="col-md-6 mt-2"><label for=""> Package Active</label>
+                            <input type="checkbox" [(ngModel)]="packageObj.isPackageActive" name="isPackageActive">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><label for="">description </label>
+                            <textarea #description="ngModel" name="packageDescription" required minlength="10" class="form-control" rows="3"
+                                [(ngModel)]="packageObj.packageDescription"></textarea>
+                                <div class="text-danger" *ngIf="description.touched || description.dirty">
+                                    <span *ngIf="description.errors?.['required']">Descirption is Required</span>
+                                    <span *ngIf="description.errors?.['minlength']">Min 10 Chars Required</span>
+                                </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="card-footer text-center">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="saveform ">
+                                <button class="btn btn-sm btn-danger" [disabled]="packageForm.invalid" *ngIf="packageObj.packageId == 0">Save </button>
+                                <button class="btn btn-sm btn-success" (click)="onUpdate()"
+                                    *ngIf="packageObj.packageId !== 0">update </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><button class="btn btn-sm btn-danger mx-2">Close</button></div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

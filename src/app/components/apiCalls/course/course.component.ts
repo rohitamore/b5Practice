@@ -27,9 +27,20 @@ export class CourseComponent {
   onEdit(course: any) {
     this.courseObj = course;
   }
+  onSaveCourse() {
+    debugger;
+    this.http.post("http://onlinetestapi.gerasim.in/api/OnlineTest/addcourse", this.courseObj).subscribe((res: any)=>{
+      if(res.result){
+        alert("Course created");
+        this.getAllCourse();
+      }
+       else {
+        alert(res.message);
+       }
+    })
+  }
   onUpdate() { 
-    this.http.post("http://onlinetestapi.gerasim.in/api/OnlineTest/UpdateCourse",
-     this.courseObj).subscribe((res:any)=>{
+    this.http.post("http://onlinetestapi.gerasim.in/api/OnlineTest/UpdateCourse",this.courseObj).subscribe((res:any)=>{
       if(res.result) {
         alert("Course Updated");
         this.getAllCourse();

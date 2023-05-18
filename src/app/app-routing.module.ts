@@ -17,72 +17,33 @@ import { ProductsComponent } from './components/products/products.component';
 import { CandidatesComponent } from './components/apiCalls/candidates/candidates.component';
 import { ClinetsComponent } from './components/apiCalls/clinets/clinets.component';
 import { CourseComponent } from './components/apiCalls/course/course.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  {
-    path: "dataBinding",
-    component: DataBindingComponent
-  },
-  {
-    path: "Emp",
-    component: EmployeeComponent
-  },
-  {
-    path: 'ngModel',
-    component: NgmodelComponent
-  },
-  {
-    path: 'product',
-    component: ProductComponent
-  },
-  {
-    path: 'variables',
-    component: VariablesComponent
-  },
-  {
-    path: 'user',
-    component: UserComponent
-  },
-  {
-    path:'ng-if',
-    component:NgIfComponent
-  },
-  {
-    path:'candidates',
-    component:CandidatesComponent
-  }, 
-  {
-    path:'Clients',
-    component:ClinetsComponent
-  },   
-  {
-    path:'Course',
-    component:CourseComponent
-  }, 
-  {
-    path:'ng-if-2',
-    component:NgifPracticeComponent
-  }, 
-  {
-    path:'ng-For',
-    component:NgForComponent
-  }, 
-  {
-    path:'ng-For-practice',
-    component:NgForPraticeComponent
-  }, 
-  {
-    path:'ng-class',
-    component:NgClassComponent
-  }, 
-  {
-    path:'ng-style',
-    component:NgstyleComponent
-  }, 
-  {
-    path:'getAPI',
-    component:ProductsComponent
+  {  path:'',  component:LoginComponent },
+  {  path:'login',  component:LoginComponent  },
+  {  path:'',    component: LayoutComponent,
+    children:[ 
+      {
+        path:'candidates',
+        component:CandidatesComponent,
+        canActivate: [AuthGuard]
+      }, 
+      {
+        path:'Clients',
+        component:ClinetsComponent,
+        canActivate: [AuthGuard]
+      },   
+      {
+        path:'Course',
+        component:CourseComponent
+      }
+    ]
   }
+
+ 
 ];
 
 @NgModule({

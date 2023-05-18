@@ -33,6 +33,7 @@
         </div>
     </div>
     <div class="col-4">
+        <form  #candidateForm="ngForm">
         <div class="card">
             <div class="card-header bg-success text-white">
                 <div class="row">
@@ -46,12 +47,21 @@
 
                 <div class="row mt-2">
                     <div class="col-md-12 mt-2"><label for="">Name</label>
-                        <input type="text" name="name" [(ngModel)]="candidateObj.name"
+                        <input type="text" #canididateName="ngModel" name="name" required minlength="5" maxlength="20" [(ngModel)]="candidateObj.name"
                             class="form-control ">
-                        <div class="text-danger "><span>required</span></div>
+                        <div class="text-danger" *ngIf="canididateName.touched || canididateName.dirty">
+                            <span *ngIf="canididateName.errors?.['required']">required</span>
+                            <span *ngIf="canididateName.errors?.['minlength']">Min Char is 3</span>
+                        </div>
                     </div>
-                    <div class="col-md-12"><label for="">Email</label><input type="email" [(ngModel)]="candidateObj.email" name="email"
-                            class="form-control "></div>
+                    <div class="col-md-12"><label for="">Email</label>
+                        <input type="email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="candidateObj.email" name="email"
+                            class="form-control ">
+                        </div>
+                        <div class="text-danger" *ngIf="email.touched || email.dirty">
+                            <span *ngIf="email.errors?.['required']">Required</span>
+                            <span *ngIf="email.errors?.['pattern']">Email Not Proper</span>
+                        </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-2"><label for="">Password</label><input type="password" [(ngModel)]="candidateObj.password" name="password"
@@ -75,7 +85,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="saveform ">
-                            <button class="btn btn-sm btn-danger" *ngIf="candidateObj.candidateId == 0"  >Save </button>
+                            <button class="btn btn-sm btn-danger" [disabled]="candidateForm.invalid" *ngIf="candidateObj.candidateId == 0"  >Save </button>
                             <button class="btn btn-sm btn-success" (click)="onUpdate()"  *ngIf="candidateObj.candidateId !== 0" >update </button>
                         </div>
                     </div>
@@ -83,5 +93,6 @@
                 </div>
             </div>
         </div>
+    </form>
     </div>
 </div>

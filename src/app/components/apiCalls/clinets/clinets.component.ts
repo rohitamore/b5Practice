@@ -11,7 +11,7 @@ export class ClinetsComponent {
   packageObj: any = {
     "packageId": 0,
     "packageName": "",
-    "packageCost": 0,
+    "packageCost": "",
     "packageDescription": "",
     "isPackageActive": false
   };
@@ -35,7 +35,7 @@ export class ClinetsComponent {
   }
   onDelete(id: number) {
     debugger;
-    this.http.post("http://onlinetestapi.gerasim.in/api/Meeting/DeletePackgeById?id=" + id, {})
+    this.http.post("http://onlinetestapi.gerasim.in/api/Meeting/DeletePackgeById?id=" + id,{})
     .subscribe((res: any) => {
       debugger;
       if (res.result) {

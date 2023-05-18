@@ -23,6 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CandidatesComponent } from './components/apiCalls/candidates/candidates.component';
 import { ClinetsComponent } from './components/apiCalls/clinets/clinets.component';
 import { CourseComponent } from './components/apiCalls/course/course.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { AuthGuard } from './services/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,9 @@ import { CourseComponent } from './components/apiCalls/course/course.component';
     ProductsComponent,
     CandidatesComponent,
     ClinetsComponent,
-    CourseComponent
+    CourseComponent,
+    LoginComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,9 @@ import { CourseComponent } from './components/apiCalls/course/course.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
