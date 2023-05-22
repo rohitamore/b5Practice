@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { CandidateService } from 'src/app/services/candidate/candidate.service';
+import { MasterService } from 'src/app/services/master/master.service';
 
 @Component({
   selector: 'app-candidates',
@@ -9,6 +11,12 @@ import { Component } from '@angular/core';
 export class CandidatesComponent {
 
   candidateArray: any[]=[];
+  cityList = [1,2,3,4,5]
+  firstName: string = "Chetan";
+  fullName:string = "chetan p jogi";
+  currentDate: Date= new Date();
+  productPrice: number =23.45;
+
   candidateObj:any= {
     "candidateId": 0,
     "name": "",
@@ -24,26 +32,31 @@ export class CandidatesComponent {
     "ifscCode": "",
     "reference": ""
   }
-  constructor(private http: HttpClient){
+  constructor(private masterSrv: MasterService,private http: HttpClient, private candidateSrv: CandidateService ){
     this.getAllCanidates();
+    debugger;
+    const year = this.masterSrv.getCurrentYear();
   }
   getAllCanidates() {
-    this.http.get("http://onlinetestapi.gerasim.in/api/OnlineTest/GetAllCandidates").subscribe((res: any)=>{
+    this.candidateSrv.getAllCandidate().subscribe((res:any)=>{
       this.candidateArray = res.data;
     })
   }
   onEdit(id: number) {
     debugger;
-    this.http.get("http://onlinetestapi.gerasim.in/api/OnlineTest/GetCandidateById?id="+id).subscribe((res: any)=>{
+    this.candidateSrv.getCandidateById(id).subscribe((res: any)=>{
       debugger; 
      this.candidateObj =  res.data;
     })
   }
   onUpdate() {
-    this.http.post("http://onlinetestapi.gerasim.in/api/OnlineTest/UpdateCandiadte", this.candidateObj).subscribe((res: any)=>{
+    this.candidateSrv.updateCandidate(this.candidateObj).subscribe((res: any)=>{
       this.getAllCanidates();
     })
   }
 
+  deleteCandidate() {
+
+  }
 
 }

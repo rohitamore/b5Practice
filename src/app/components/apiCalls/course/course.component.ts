@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { MasterService } from 'src/app/services/master/master.service';
 
 @Component({
   selector: 'app-course',
@@ -15,7 +16,8 @@ export class CourseComponent {
     "courseDuration": "",
     "courseBasicFees": 0
   }
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient, private master: MasterService){
+    const yaer = this.master.getCurrentYear();
     this.getAllCourse();
   }
   getAllCourse() {
@@ -29,7 +31,7 @@ export class CourseComponent {
   }
   onSaveCourse() {
     debugger;
-    this.http.post("http://onlinetestapi.gerasim.in/api/OnlineTest/addcourse", this.courseObj).subscribe((res: any)=>{
+    this.master.saveCourse(this.courseObj).subscribe((res: any)=>{
       if(res.result){
         alert("Course created");
         this.getAllCourse();

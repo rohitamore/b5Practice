@@ -26,6 +26,8 @@ import { CourseComponent } from './components/apiCalls/course/course.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { AuthGuard } from './services/auth.guard';
+import { NaPipe } from './pipes/na.pipe';
+import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,9 @@ import { AuthGuard } from './services/auth.guard';
     ClinetsComponent,
     CourseComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    NaPipe,
+    AlertBoxComponent
   ],
   imports: [
     BrowserModule,

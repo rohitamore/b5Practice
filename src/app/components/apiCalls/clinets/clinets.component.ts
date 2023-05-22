@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { MasterService } from 'src/app/services/master/master.service';
 
 @Component({
   selector: 'app-clinets',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class ClinetsComponent {
 
+  welcomeMsg : string = "Client Page Loaded";
+  
   packageObj: any = {
     "packageId": 0,
     "packageName": "",
@@ -16,8 +19,17 @@ export class ClinetsComponent {
     "isPackageActive": false
   };
   packages: any[] = [];
-  constructor(private http: HttpClient) {
+  constructor( private masterService : MasterService,private http: HttpClient) {
     this.loadAllPackages();
+    debugger;
+    this.loadCandidates();
+    const CurrentYer =  this.masterService.getCurrentYear();
+    debugger;
+  }
+  loadCandidates() {
+    this.masterService.getAllCandidates().subscribe(res=>{
+      debugger;
+    })
   }
 
   loadAllPackages() {
