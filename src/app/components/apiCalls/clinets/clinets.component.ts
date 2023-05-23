@@ -9,7 +9,14 @@ import { MasterService } from 'src/app/services/master/master.service';
 })
 export class ClinetsComponent {
 
-  welcomeMsg : string = "Client Page Loaded";
+  message : string = "";
+  showAlert: boolean= false;
+  messageType: string = '';
+  sliderImage: string[]= [
+    "https://im.indiatimes.in/content/2020/Jan/1_5e33f98fc7cd6.jpg?w=1200&h=900&cc=1",
+    "https://images.news18.com/ibnlive/uploads/2021/08/sachin-tendulkar-52-16287387964x3.jpg",
+    "https://www.hindustantimes.com/ht-img/img/2023/04/24/550x309/PTI04-23-2023-000079B-0_1682339869886_1682339945777.jpg"
+  ]
   
   packageObj: any = {
     "packageId": 0,
@@ -63,8 +70,10 @@ export class ClinetsComponent {
     this.http.post("http://onlinetestapi.gerasim.in/api/Meeting/UpdatePackge", this.packageObj)
     .subscribe((res: any) => {
       debugger;
+      this.message = res.message;
+      this.showAlert = true;
       if (res.result) {
-        alert("Update Success");
+        this.messageType = "success";
         this.packageObj = {
           "packageId": 0,
           "packageName": "",
@@ -74,8 +83,17 @@ export class ClinetsComponent {
         };
         this.loadAllPackages();
       } else {
-        alert(res.message)
+        this.messageType = "danger";
       }
+      setTimeout(() => {
+        this.showAlert = false;
+        this.message = '';
+        this.messageType = '';
+      }, 5000);
+    }, error=>{
+      this.message = JSON.stringify(error) ;
+      this.showAlert = true;
+      this.messageType = "danger";
     })
   }
 }

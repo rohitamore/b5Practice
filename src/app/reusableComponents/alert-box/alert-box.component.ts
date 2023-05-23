@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class AlertBoxComponent {
 
  @Input() alertMessage: string = '';
+ @Input() messaeType: string = '';
 
 }

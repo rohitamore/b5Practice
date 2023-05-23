@@ -1,7 +1,8 @@
 
-<app-alert-box [alertMessage]="welcomeMsg"> </app-alert-box> 
+<app-alert-box *ngIf="showAlert" [alertMessage]="message"  [messaeType]="messageType"> </app-alert-box> 
 
-
+<app-my-slider [imagesArray]="sliderImage"></app-my-slider>
+  
 
 <div class="row">
     <div class="col-8">

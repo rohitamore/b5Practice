@@ -28,6 +28,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { AuthGuard } from './services/auth.guard';
 import { NaPipe } from './pipes/na.pipe';
 import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.component';
+import { MySliderComponent } from './reusableComponents/my-slider/my-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.comp
     LoginComponent,
     LayoutComponent,
     NaPipe,
-    AlertBoxComponent
+    AlertBoxComponent,
+    MySliderComponent
   ],
   imports: [
     BrowserModule,

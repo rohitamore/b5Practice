@@ -9,6 +9,10 @@ import { MasterService } from 'src/app/services/master/master.service';
 })
 export class CourseComponent {
 
+  dhoneImagesArray = [
+    "https://resize.indiatvnews.com/en/resize/newbucket/730_-/2023/04/PTI04_03_2023_000319B.jpg",
+    "https://static.toiimg.com/thumb/msid-99600147,width-1280,resizemode-4/99600147.jpg" 
+  ]
   courseList: any[]=[];
   courseObj: any = {
     "courseId": 0,
