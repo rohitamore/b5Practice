@@ -42,6 +42,9 @@ export class CandidatesComponent {
       this.candidateArray = res.data;
     })
   }
+  onClose(param: string) {
+debugger;
+  }
   onEdit(id: number) {
     debugger;
     this.candidateSrv.getCandidateById(id).subscribe((res: any)=>{
