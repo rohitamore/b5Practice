@@ -3,6 +3,21 @@
 </app-alert-box>
 <app-my-slider></app-my-slider>
    -->
+<app-group-buttons (tabChanged)="onTabChange($event)"
+ [tabs]="['Basic Details','Family Details','Office Details']">
+</app-group-buttons>
+
+<div class="p-5" *ngIf="currentrTab == 'Basic Details'">
+    Basic Details Div
+</div>
+<div class="p-5" *ngIf="currentrTab == 'Family Details'">
+    Family Details Div
+</div>
+<div class="p-5" *ngIf="currentrTab == 'Office Details'">
+    Office Details Div
+</div>
+
+
 <div class="row">
     <div class="col-8">
         <div class="card">
@@ -50,7 +65,8 @@
                             <h6>Enter Candidate Details</h6>
                         </div>
                         <div class="col-md-6 text-end">
-                            <app-my-button [btnClass]="'btn btn-warning'" [btnText]="'Close'"
+                            <app-my-button [btnClass]="'btn btn-warning'"
+                             [btnText]="'Close'"
                                 (onBtnClick)="onClose($event)"></app-my-button>
                         </div>
                     </div>

@@ -30,6 +30,7 @@ import { NaPipe } from './pipes/na.pipe';
 import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.component';
 import { MySliderComponent } from './reusableComponents/my-slider/my-slider.component';
 import { MyButtonComponent } from './reusableComponents/my-button/my-button.component';
+import { GroupButtonsComponent } from './reusableComponents/group-buttons/group-buttons.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { MyButtonComponent } from './reusableComponents/my-button/my-button.comp
     NaPipe,
     AlertBoxComponent,
     MySliderComponent,
-    MyButtonComponent
+    MyButtonComponent,
+    GroupButtonsComponent
   ],
   imports: [
     BrowserModule,

@@ -52,6 +52,11 @@ debugger;
      this.candidateObj =  res.data;
     })
   }
+  currentrTab: string = '';
+  onTabChange(tabName: string) {
+    debugger;
+    this.currentrTab = tabName;
+  }
   onUpdate() {
     this.candidateSrv.updateCandidate(this.candidateObj).subscribe((res: any)=>{
       this.getAllCanidates();
