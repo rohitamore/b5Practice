@@ -20,6 +20,7 @@ import { CourseComponent } from './components/apiCalls/course/course.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { AuthGuard } from './services/auth.guard';
+import { AddCandidateComponent } from './components/apiCalls/add-candidate/add-candidate.component';
 
 const routes: Routes = [
   {  path:'',  component:LoginComponent },
@@ -29,6 +30,16 @@ const routes: Routes = [
       {
         path:'candidates',
         component:CandidatesComponent,
+        canActivate: [AuthGuard]
+      }, 
+      {
+        path:'editCandidate/:id',
+        component:AddCandidateComponent,
+        canActivate: [AuthGuard]
+      }, 
+      {
+        path:'addCandidate',
+        component:AddCandidateComponent,
         canActivate: [AuthGuard]
       }, 
       {

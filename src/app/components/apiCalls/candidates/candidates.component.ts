@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CandidateService } from 'src/app/services/candidate/candidate.service';
 import { MasterService } from 'src/app/services/master/master.service';
 
@@ -32,7 +33,7 @@ export class CandidatesComponent {
     "ifscCode": "",
     "reference": ""
   }
-  constructor(private masterSrv: MasterService,private http: HttpClient, private candidateSrv: CandidateService ){
+  constructor(private masterSrv: MasterService,private router: Router,private http: HttpClient, private candidateSrv: CandidateService ){
     this.getAllCanidates();
     debugger;
     const year = this.masterSrv.getCurrentYear();
@@ -47,10 +48,7 @@ debugger;
   }
   onEdit(id: number) {
     debugger;
-    this.candidateSrv.getCandidateById(id).subscribe((res: any)=>{
-      debugger; 
-     this.candidateObj =  res.data;
-    })
+    this.router.navigate(['/editCandidate', id])
   }
   currentrTab: string = '';
   onTabChange(tabName: string) {

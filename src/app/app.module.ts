@@ -31,6 +31,7 @@ import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.comp
 import { MySliderComponent } from './reusableComponents/my-slider/my-slider.component';
 import { MyButtonComponent } from './reusableComponents/my-button/my-button.component';
 import { GroupButtonsComponent } from './reusableComponents/group-buttons/group-buttons.component';
+import { AddCandidateComponent } from './components/apiCalls/add-candidate/add-candidate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { GroupButtonsComponent } from './reusableComponents/group-buttons/group-
     AlertBoxComponent,
     MySliderComponent,
     MyButtonComponent,
-    GroupButtonsComponent
+    GroupButtonsComponent,
+    AddCandidateComponent
   ],
   imports: [
     BrowserModule,
