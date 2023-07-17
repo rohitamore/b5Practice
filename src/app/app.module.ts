@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -8,7 +7,6 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { ProductComponent } from './components/product/product.component';
 import { VariablesComponent } from './components/variables/variables.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
-
 import { FormsModule } from '@angular/forms';
 import { NgmodelComponent } from './components/ngmodel/ngmodel.component';
 import { NgIfComponent } from './components/ng-if/ng-if.component';
@@ -30,6 +28,7 @@ import { NaPipe } from './pipes/na.pipe';
 import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.component';
 import { MySliderComponent } from './reusableComponents/my-slider/my-slider.component';
 import { MyButtonComponent } from './reusableComponents/my-button/my-button.component';
+import { LocalcrudeComponent } from './local-curd/localcrude/localcrude.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +54,8 @@ import { MyButtonComponent } from './reusableComponents/my-button/my-button.comp
     NaPipe,
     AlertBoxComponent,
     MySliderComponent,
-    MyButtonComponent
+    MyButtonComponent,
+    LocalcrudeComponent
   ],
   imports: [
     BrowserModule,
