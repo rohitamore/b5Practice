@@ -20,6 +20,7 @@ import { CourseComponent } from './components/apiCalls/course/course.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { AuthGuard } from './services/auth.guard';
+import { AddCandidateComponent } from './components/apiCalls/add-candidate/add-candidate.component';
 
 const routes: Routes = [
   {
@@ -40,8 +41,23 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+<<<<<<< HEAD
         path: 'Clients',
         component: ClinetsComponent,
+=======
+        path:'editCandidate/:id',
+        component:AddCandidateComponent,
+        canActivate: [AuthGuard]
+      }, 
+      {
+        path:'addCandidate',
+        component:AddCandidateComponent,
+        canActivate: [AuthGuard]
+      }, 
+      {
+        path:'Clients',
+        component:ClinetsComponent,
+>>>>>>> 87394fd901ff3c56b98d67cda95d17c740cef440
         canActivate: [AuthGuard]
       },
       {

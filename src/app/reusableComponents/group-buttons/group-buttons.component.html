@@ -1,0 +1,8 @@
+<div class="btn-group btn-group-lg">
+    <button type="button" *ngFor="let tab of tabs"
+     (click)="selectTab(tab)" 
+    class="btn"
+    [ngClass]="activatedTabName == tab? 'btn-success':'btn-primary'"
+    >{{tab}}</button> 
+</div>
+ 

@@ -28,7 +28,12 @@ import { NaPipe } from './pipes/na.pipe';
 import { AlertBoxComponent } from './reusableComponents/alert-box/alert-box.component';
 import { MySliderComponent } from './reusableComponents/my-slider/my-slider.component';
 import { MyButtonComponent } from './reusableComponents/my-button/my-button.component';
+<<<<<<< HEAD
 import { LocalcrudeComponent } from './local-curd/localcrude/localcrude.component';
+=======
+import { GroupButtonsComponent } from './reusableComponents/group-buttons/group-buttons.component';
+import { AddCandidateComponent } from './components/apiCalls/add-candidate/add-candidate.component';
+>>>>>>> 87394fd901ff3c56b98d67cda95d17c740cef440
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +60,12 @@ import { LocalcrudeComponent } from './local-curd/localcrude/localcrude.componen
     AlertBoxComponent,
     MySliderComponent,
     MyButtonComponent,
+<<<<<<< HEAD
     LocalcrudeComponent
+=======
+    GroupButtonsComponent,
+    AddCandidateComponent
+>>>>>>> 87394fd901ff3c56b98d67cda95d17c740cef440
   ],
   imports: [
     BrowserModule,
